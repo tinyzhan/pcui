@@ -1,0 +1,38 @@
+//弹性布局-垂直居中
+%flex-middle-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//弹性布局-垂直
+%flex-middle {
+    display: flex;
+    align-items: center;
+}
+
+//弹性布局-两边布局
+%flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+//弹性布局-靠右布局
+%flex-end {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+//弹性布局-上下布局
+%flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+
+//滑动
+%overflow-auto {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}

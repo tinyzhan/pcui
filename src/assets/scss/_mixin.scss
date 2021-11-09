@@ -1,0 +1,125 @@
+//文字超过2行
+@mixin textEllipsis($line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $line;
+}
+
+//按钮点击样式
+@mixin btnClick {
+    cursor: pointer;
+    &:active {
+        // color: rgba(255, 255, 255, 0.6);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.1));
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    }
+}
+
+//边框样式，1/2像素边框
+@mixin halfBorder($direction, $color, $space1: 0, $space2: 0) {
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        background-color: $color;
+        height: j(1);
+        transform: scaleY(0.5);
+        @if ($direction == "top") {
+            top: 0;
+            left: $space1;
+            right: $space2;
+        } @else if ($direction == "bottom") {
+            bottom: 0;
+            left: $space1;
+            right: $space2;
+        } @else if ($direction == "left") {
+            left: 0;
+            top: $space1;
+            bottom: $space2;
+        } @else if ($direction == "right") {
+            right: 0;
+            top: $space1;
+            bottom: $space2;
+        }
+    }
+}
+
+//大的按钮的样式
+@mixin largeBtn($backgroundColor: white, $color: white, $borderColor: transparent) {
+    color: $color;
+    font-weight: 500;
+    font-size: j(16);
+    padding: j(10);
+    border-radius: j(30);
+    text-align: center;
+    background-color: $backgroundColor;
+    border: j(1) solid $borderColor;
+}
+
+//普通的按钮的样式
+@mixin normalBtn($backgroundColor: white, $color: white, $borderColor: transparent) {
+    color: $color;
+    font-weight: 500;
+    padding: j(6) j(10);
+    border-radius: j(30);
+    text-align: center;
+    background-color: $backgroundColor;
+    border: j(1) solid $borderColor;
+}
+
+//偏小的按钮的样式
+@mixin smallBtn($backgroundColor: white, $color: white, $borderColor: transparent) {
+    color: $color;
+    font-weight: 500;
+    padding: j(3) j(10);
+    border-radius: j(30);
+    text-align: center;
+    border: j(1) solid $borderColor;
+    background-color: $backgroundColor;
+}
+
+//偏小的按钮的样式
+@mixin container($backgroundColor: white) {
+    width: 100%;
+    height: 100%;
+    background-color: $backgroundColor;
+}
+
+//三角
+@mixin triangle($color: #b3b3b3, $borderWidth: j(5)) {
+    width: 0;
+    height: 0;
+    border-top: $borderWidth solid transparent;
+    border-left: $borderWidth solid $color;
+    border-bottom: $borderWidth solid transparent;
+}
+
+//箭头
+@mixin arrow($direction, $color: black, $borderWidth: j(1)) {
+    position: relative;
+    border: solid $color;
+    border-width: 0 $borderWidth $borderWidth 0;
+    display: inline-block;
+    padding: 3px;
+    @if ($direction == "up") {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+    }
+    @if ($direction == "down") {
+        top: -2px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    @if ($direction == "left") {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+    }
+    @if ($direction == "right") {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+}
