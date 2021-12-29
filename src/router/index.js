@@ -20,9 +20,14 @@ const routes = [
     component: () => import("../views/xkTestPage.vue"),
   },
   {
+    path: "/zcy",
+    name: "zcy",
+    component: () => import("../views/zcyTestPage.vue")
+  },
+  {
     path: "*",
     name: "Home",
-    component: () => import("../views/lxlTestPage.vue"),
+    component: () => import("../views/zcyTestPage.vue"),
   },
 ];
 
