@@ -1,7 +1,8 @@
 export const columns = [
     {
         title: "名称名称名称",
-        dataIndex: "name"
+        dataIndex: "name",
+        fixed: 'left',
     },
     {
         title: "邮箱",
@@ -9,7 +10,8 @@ export const columns = [
     },
     {
         title: "占比",
-        dataIndex: "range"
+        dataIndex: "range",
+        width: 100
     },
     {
         title: "时间",
@@ -17,7 +19,7 @@ export const columns = [
     }
 ]
 
-export const dataSource = [
+export const data = [
     {
         name: "静电言叶一号机",
         email: "001@weiling.cn",

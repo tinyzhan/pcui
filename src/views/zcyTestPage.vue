@@ -4,18 +4,25 @@
       src="https://img1.baidu.com/it/u=1251916380,3661111139&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=800"
       picClass="picClass"
     /> -->
-    <WlTable :columns="columns" :dataSource="dataSource"/>
+    <WlTable :columns="columns" :data="data" size="small">
+      <template #email="scope">
+        !!!{{scope.data.email}}!!!
+      </template>
+      <template #range="scope">
+        !!!{{scope.data.range}}!!!
+      </template>
+    </WlTable>
   </div>
 </template>
 
 <script>
-import { columns, dataSource } from "../utils/myTest"
+import { columns, data } from "../utils/myTest"
 export default {
   name: "zcyTestPage",
   data() {
     return {
       columns,
-      dataSource
+      data
     };
   },
   methods: {},
@@ -25,7 +32,7 @@ export default {
 <style lang="scss" scope>
 .container {
   background-color: #fff;
-  padding: 20px;
+  padding: 60px;
 }
 .picClass {
   max-width: 200px;
