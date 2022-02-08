@@ -1,6 +1,6 @@
 import Vue from "vue";
-import WeilingMobileUI from "@packages/index";
-Vue.use(WeilingMobileUI);
+import WeilingpcUI from "@packages/index";
+Vue.use(WeilingpcUI);
 // import { WlPic, WlHeader, WIFixedMenu, WlRadioIcon, MtTotal, WlSteps, MtSuspensionCode, mtxiaoweidialog } from "@packages/index";
 // console.log(WlPic)
 // Vue.use(WlPic);

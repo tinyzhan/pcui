@@ -1,4 +1,4 @@
-# weiling-mobile-ui2
+# weiling-pc-ui
 
 ## Project setup
 ```
