@@ -4,7 +4,7 @@
       src="https://img1.baidu.com/it/u=1251916380,3661111139&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=800"
       picClass="picClass"
     /> -->
-    <WlTable :columns="columns" :data="data" size="small">
+    <WlTable :columns="columns" :data="data" size="large">
       <template #email="scope">
         !!!{{scope.data.email}}!!!
       </template>

@@ -2,17 +2,21 @@
     <div class="table_wrap">
         <div class="wl-table">
             <div class="table-thead">
-                <div class="thead-tr">
+                <!-- <div class="thead-tr">
                     <div class="thead-th" 
                     :class="tableLineSize" 
                     v-for="(column,index) in columns" 
                     :key="index"
                     :style="!!column.width && { 'width': tableRowWidth(column), 'flex': 'unset' }"
                     >{{column.title}}</div>
-                </div>
+                </div> -->
+                <tableHead
+                :size="size"
+                :columns="columns"
+                ></tableHead>
             </div>
             <div class="table-tbody">
-                <div class="tbody-tr" v-for="(item,key) in data" :key="key">
+                <!-- <div class="tbody-tr" v-for="(item,key) in data" :key="key">
                     <div class="tbody-td" 
                     :class="tableLineSize" 
                     v-for="(column,index) in columns" 
@@ -23,15 +27,26 @@
                             {{item[column.dataIndex]}}
                         </slot>
                     </div>
-                </div>
+                </div> -->
+                <template v-for="(item,key) in data">
+                    <tableRow 
+                    :key="key"
+                    :item="item"
+                    :columns="columns"
+                    :size="size"
+                    ></tableRow>
+                </template>
             </div>
         </div>
     </div>
 </template>
 
 <script type="text/babel">
+import tableRow from "./table-row"
+import tableHead from "./table-head"
 export default {
     name: "WlTable",
+    components: { tableRow, tableHead },
     props: {
         columns: {
           type: Array,
@@ -46,76 +61,5 @@ export default {
             default: 'large'
         },
     },
-    computed: {
-        tableLineSize() {
-            let { size } = this;
-            return `table-line-${size}`
-        },
-        tableRowWidth() {
-            return column => `${column.width}px`
-        }
-    }
 }
 </script>
-
-<style scoped lang="scss">
-div {
-    box-sizing: border-box;
-}
-.table_wrap {
-    font-family: PingFang SC;
-    font-size: 14px;
-    padding-left: 161px;
-}
-.wl-table {
-    width: 100%;
-    border: 1px solid #E4E9ED;
-    border-radius: 12px;
-    
-    .table-thead {
-        border-bottom: 1px solid #E4E9ED;
-        .thead-tr {
-            display: flex;
-        }
-        .thead-th {
-            flex: 1;
-        }
-    }
-    .table-tbody {
-        .tbody-tr {
-            display: flex;
-            position: relative;
-            // border-bottom: 0.5px solid #E4E9ED;
-        }
-        
-        .tbody-tr::after {
-            content: "  ";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 1px;
-            background-color: #E4E9ED;
-            /* 如果不用 background-color, 使用 border-top:1px solid #f00; 效果是一样的*/
-            -webkit-transform: scaleY(.5);
-            transform:scaleY(.5);
-        }
-        .tbody-tr:last-of-type::after {
-            display: none;
-        }
-        .tbody-td {
-            flex: 1;
-        }
-    }
-
-    .table-line-large {
-        padding: 14.4px 17px;
-    }
-    .table-line-medium {
-        padding: 11.4px 17px;
-    }
-    .table-line-small {
-        padding: 8.4px 17px;
-    }
-}
-</style>
