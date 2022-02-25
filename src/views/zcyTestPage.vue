@@ -12,20 +12,29 @@
         !!!{{scope.data.range}}!!!
       </template>
     </WlTable>
+
+    <template v-for="(item, index) in focus">
+      <WlCards :data="item" :key="index"/>
+    </template>
   </div>
 </template>
 
 <script>
-import { columns, data } from "../utils/myTest"
+import { columns, data, focus, history } from "../utils/myTest";
+
 export default {
   name: "zcyTestPage",
   data() {
     return {
       columns,
-      data
+      data,
+      focus,
+      history
     };
   },
-  methods: {},
+  methods: {
+
+  },
 };
 </script>
 

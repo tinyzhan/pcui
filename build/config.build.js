@@ -9,7 +9,7 @@ module.exports = {
     //  入口文件
     entry: {
       index: resolve("./packages/index.js"),
-      ...getComponentEntries("./packages/components/Common"),
+      ...getComponentEntries("./packages"),
       // ...getComponentEntries("./packages/components/Client"),
       // ...getComponentEntries("./packages/components/Material"),
       // ...getComponentEntries("./packages/components/Enterprise"),

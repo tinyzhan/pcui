@@ -10,12 +10,6 @@
 </template>
 
 <script>
-/*
- * @Author: Liao.xiuli
- * @Date: 2021-09-18 11:18:59
- * @Last Modified by: Liao.xiuli
- * @Last Modified time: 2021-11-02 17:55:02
- */
 import { isBase64 } from "@packages/utils";
 export default {
   name: "WlPic",

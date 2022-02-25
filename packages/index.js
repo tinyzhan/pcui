@@ -1,13 +1,15 @@
 import "@packages/assets/scss/iconfont.css";
 
 //公共组件库
-import WlPic from "./components/Common/WlPic";
-import WlTable from "./components/Common/WlTable"
+import WlPic from "./WlPic";
+import WlTable from "./WlTable";
+import WlCards from "./WlCards";
 
 const components = [
   //公共组件
   WlPic,
-  WlTable
+  WlTable,
+  WlCards
 ];
 
 const install = function(Vue) {
@@ -24,5 +26,6 @@ export default {
   install, // 全量引入
   //公共组件
   WlPic,
-  WlTable
+  WlTable,
+  WlCards
 };
